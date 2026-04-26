@@ -1,0 +1,51 @@
+{
+  "extends": "expo",
+  "name": "VideoTools",
+  "slug": "videotools",
+  "version": "1.0.0",
+  "orientation": "portrait",
+  "icon": "./assets/icon.png",
+  "userInterfaceStyle": "automatic",
+  "splash": {
+    "image": "./assets/splash.png",
+    "resizeMode": "contain",
+    "backgroundColor": "#3B82F6"
+  },
+  "assetBundlePatterns": ["**/*"],
+  "ios": {
+    "supportsTablet": true,
+    "bundleIdentifier": "com.videotools.app",
+    "infoPlist": {
+      "NSPhotoLibraryUsageDescription": "This app needs access to save downloaded videos to your photo library.",
+      "NSPhotoLibraryAddUsageDescription": "This app needs permission to save videos and audio files."
+    }
+  },
+  "android": {
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/adaptive-icon.png",
+      "backgroundColor": "#3B82F6"
+    },
+    "package": "com.videotools.app",
+    "permissions": [
+      "READ_EXTERNAL_STORAGE",
+      "WRITE_EXTERNAL_STORAGE",
+      "READ_MEDIA_VIDEO",
+      "READ_MEDIA_AUDIO"
+    ]
+  },
+  "web": {
+    "favicon": "./assets/favicon.png",
+    "bundler": "metro"
+  },
+  "plugins": [
+    "expo-file-system",
+    [
+      "expo-media-library",
+      {
+        "photosPermission": "Allow $(PRODUCT_NAME) to access your photos to save videos and audio.",
+        "savePhotosPermission": "Allow $(PRODUCT_NAME) to save videos and audio.",
+        "isAccessMediaLocationEnabled": true
+      }
+    ]
+  ]
+}
